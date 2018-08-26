@@ -8,7 +8,7 @@ To create TRemote plugins you must use Go 1.11 and import this repository:
 import "github.com/mehrvarz/tremote_plugin"
 ```
 
-To see how this package can be used, take a look at the [TRemote Plugin rpi_gpio](https://github.com/mehrvarz/tremote_plugin_rpi_gpio) project.
+This repository acts as an interface between the Linux service and your plugin. To see how this package can be used, take a look at the [TRemote Plugin rpi_gpio](https://github.com/mehrvarz/tremote_plugin_rpi_gpio) project.
 
 This repository provides access to several TRemote Host helper classes:
 
