@@ -15,6 +15,13 @@ This behaves just like it would, if abc was a normal native executable. In which
 abc arg1
 ```
 
+One difference: to hand over multiple arguments to a plugin, you must use pipe characters ('|'): 
+
+```
+runrtp abc-plugin.so arg1|arg2|arg3
+```
+
+
 # Download runtrp for linux.ARM6 (Raspberry Pi)
 
 To download runtrp for linux.ARM6, click the "runrtp" link on top and then click Download.
