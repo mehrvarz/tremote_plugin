@@ -1,8 +1,8 @@
-# runtrp - run TRemote plugin tool
+# runtrp - run TRemote plugin
 
-TRemote is a service for ARM based Linux computers. It lets you remote control *things* on these kind of machines, specifically over Bluetooth. There is no limit to what you can remote control on a target device because you can extend the remote control service with with native code plugins.
+TRemote is a service for ARM based Linux computers that lets you remote control *things* on these type of machines, specifically over Bluetooth. There is no limit to what you can remote control on a target device because you can extend the remote control service with native code plugins.
 
-When developing these plugins it can often be useful to be able to ~run~ them from the command line. This is what the runtrp tool does and this is how to use it:
+When developing such a plugin, it is often useful to be able to ~run~ them from the command line. This is what runtrp does and this is how to use it:
 
 
 ```
@@ -15,7 +15,7 @@ This will behave just like it would, if abc was a reguar command line executable
 abc arg1
 ```
 
-One difference: in order to hand over multiple arguments to a plugin, you need separate your arguments with pipe characters ('|'): 
+But one thing is different. In order to hand over multiple arguments to a plugin, you need to separate these arguments with pipe characters ('|'): 
 
 ```
 runrtp abc-plugin.so arg1|arg2|arg3
