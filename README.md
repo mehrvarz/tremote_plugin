@@ -69,10 +69,9 @@ In order to create plugins to work with TRemote v2.x, you need to make sure the 
 - Use the follwing packages:
 
   - github.com/mehrvarz/tremote_plugin v1.0.8
-
   - github.com/mehrvarz/log v1.0.1
 
-- Optional: ~If~ you want to use any of these packages, make sure you use the exact same versions:
+- Optional: IF you want to use any of these packages, make sure you use the exact same versions:
 
   - github.com/mehrvarz/go_queue v0.0.0-20180811045238-f34b4ebf5df4
   - github.com/go-ble/ble v0.0.0-20180718090407-11b1dad1df3d
