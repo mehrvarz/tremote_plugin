@@ -8,7 +8,7 @@ To build TRemote plugins you must use Go 1.11 and import these repositories:
 import "github.com/mehrvarz/tremote_plugin"
 import "github.com/mehrvarz/log"
 ```
-Additional info in paragraph Compatibility below.
+Find more info in paragraph Compatibility below.
 
 
 # Helper classes
