@@ -26,39 +26,39 @@ This struct is handed over to plugins. It contains several important objects.
 
 **PrintInfo(info string)**
 
-This function lets a plugin provide runtime updates.
+This function lets a plugin provide runtime info updates.
 
 **PrintStatus(info string)**
 
-This function lets a plugin provide status info.
+This function lets a plugin provide status or error information.
 
 **StopCurrentAudioPlayback()**
 
-This function lets a plugin stop any currently active audio player.
+This function lets a plugin stop any currently active audio playback. Possibly emitted from another plugin.
 
-**StopAudioPlayerChan chan bool**
+**StopAudioPlayerChan *chan bool**
 
-A Go channel that lets a plugin receive termination requests.
+A pointer to a Go channel that lets a plugin receive stop requests.
 
-**PauseAudioPlayerChan chan bool**
+**PauseAudioPlayerChan *chan bool**
 
-A Go channel that lets a plugin receive pause requests.
+A pointer to a Go channel that lets a plugin receive pause and unpause requests.
 
-**PluginIsActive bool**
+**PluginIsActive *bool**
 
-A boolian for the plugin to set true while it is active.
+A pointer to a boolian a plugin must set to true while it is active.
 
-**PIdLastPressed int**
+**PIdLastPressed *int**
 
-Pointer to an int containing the pid of the most recently pressed button.
+A pointer to an int containing the number of the most recently pressed button, before the button that activated this plugin.
 
 **PLastPressActionDone [tremote_plugin.MaxButton]bool**
 
-An array of booleans containing button-event taken-care-of flags.
+An array of booleans containing "taken-care-of" flags for every button.
 
 **PLastPressedMS[tremote_plugin.MaxButton]int64**
 
-An array of int64 elements prepresenting the time in MS when each button was last pressed.
+An array of int64 elements containg time stamps (MS) of the start time of the most recent button press.
 
 
 # Compatibility
