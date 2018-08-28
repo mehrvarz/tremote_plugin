@@ -2,13 +2,13 @@
 
 TRemote is a service for ARM based Linux computers. It lets you remote control *things* on these kind of machines, specifically over Bluetooth. There is no limit to what you can remote control. You can access a list of predefined actions, you can execute executables and shell scripts, you can issue http request, and you can invoke your own or 3rd party native code plugins.
 
-To create TRemote plugins you must use Go 1.11 and import this repository:
+To build TRemote plugins you must use Go 1.11 and import this repository:
 
 ```
 import "github.com/mehrvarz/tremote_plugin"
 ```
 
-This repository acts as an interface between the TRemote Linux service and your plugin. To see how this package can be used, take a look at the [TRemote Plugin rpi_gpio](https://github.com/mehrvarz/tremote_plugin_rpi_gpio) project.
+This repository acts as an interface between the TRemote service for Linux and your plugin. To see how this package can be used, take a look at the [TRemote Plugin rpi_gpio](https://github.com/mehrvarz/tremote_plugin_rpi_gpio) project.
 
 This repository provides access to several TRemote Host helper classes:
 
