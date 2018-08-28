@@ -9,11 +9,13 @@ When developing such a plugin it can often be useful to ~run~ it from the comman
 runrtp abc-plugin.so arg1
 ```
 
-This behaves just as if abc is a regular executable. In which case you would enter the following to run it:
+This behaves just like it would, if abc was a normal native executable. In which case you would run it like so:
 
 ```
 abc arg1
 ```
+
+# Download runtrp for linux.ARM6 (Raspberry Pi)
 
 To download runtrp for linux.ARM6, click the "runrtp" link on top and then click Download.
 
