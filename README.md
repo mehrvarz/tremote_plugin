@@ -24,39 +24,39 @@ This struct is handed over to plugins with information specific to the pressed b
 
 This struct is handed over to plugins. It contains several important objects. 
 
-**PrintInfo**
+**PrintInfo(info string)**
 
 This function lets a plugin provide runtime updates.
 
-**PrintStatus**
+**PrintStatus(info string)**
 
 This function lets a plugin provide status info.
 
-**StopCurrentAudioPlayback**
+**StopCurrentAudioPlayback()**
 
 This function lets a plugin stop any currently active audio player.
 
-**StopAudioPlayerChan**
+**StopAudioPlayerChan chan bool**
 
 A Go channel that lets a plugin receive termination requests.
 
-**PauseAudioPlayerChan**
+**PauseAudioPlayerChan chan bool**
 
 A Go channel that lets a plugin receive pause requests.
 
-**PluginIsActive**
+**PluginIsActive bool**
 
 A boolian for the plugin to set true while it is active.
 
-**PIdLastPressed**
+**PIdLastPressed int**
 
 Pointer to an int containing the pid of the most recently pressed button.
 
-**PLastPressActionDone**
+**PLastPressActionDone [tremote_plugin.MaxButton]bool**
 
 An array of booleans containing button-event taken-care-of flags.
 
-**PLastPressedMS**
+**PLastPressedMS[tremote_plugin.MaxButton]int64**
 
 An array of int64 elements prepresenting the time in MS when each button was last pressed.
 
