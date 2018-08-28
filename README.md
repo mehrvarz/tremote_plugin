@@ -8,14 +8,13 @@ To build TRemote plugins you must use Go 1.11 and import these repositories:
 import "github.com/mehrvarz/tremote_plugin"
 import "github.com/mehrvarz/log"
 ```
-See paragraph Compatibility below.
+Additional info in paragraph Compatibility below.
 
-
-Repository "tremote_plugin" acts as a interface between the TRemote service and your plugin. To see how this package can be used, take a look at the [TRemote Plugin rpi_gpio](https://github.com/mehrvarz/tremote_plugin_rpi_gpio) project.
 
 # Helper classes
 
-Repository "tremote_plugin" provides access to the following TRemote helper classes:
+Repository "tremote_plugin" acts as a interface between the TRemote service and your plugin. 
+It provides access to the following helper classes:
 
 ## RemoteControlSpec
 
