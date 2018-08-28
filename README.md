@@ -60,18 +60,18 @@ An array of int64 elements prepresenting the time in MS when each button was las
 
 # Compatibility
 
-The TRemote version that supports plugins is TRemote v2.0.
+Support for TRemote plugins started in version TRemote v2.0.
 
-In order to create plugins to work with TRemote v2.x, you need to make sure the following items are true:
+In order to create plugins to work with TRemote v2.x, the following conditions must match:
 
-- Build your plugins with Go 1.11 (exactly)
+- Build your plugins with Go v1.11 (exactly)
 
-- Use the follwing packages:
+- Import the follwing packages:
 
   - github.com/mehrvarz/tremote_plugin v1.0.8
   - github.com/mehrvarz/log v1.0.1
 
-- Optional: IF you want to use any of these packages, make sure you use the exact same versions:
+- Optional: IF you want to use any of the following packages, make sure you use the exact same versions:
 
   - github.com/mehrvarz/go_queue v0.0.0-20180811045238-f34b4ebf5df4
   - github.com/go-ble/ble v0.0.0-20180718090407-11b1dad1df3d
