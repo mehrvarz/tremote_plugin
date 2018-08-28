@@ -51,7 +51,7 @@ Pointer to an int containing the pid of the most recently pressed button.
 
 **PLastPressActionDone**
 
-An array of booleans containing button-event taken-care-off flags.
+An array of booleans containing button-event taken-care-of flags.
 
 **PLastPressedMS**
 
