@@ -24,15 +24,15 @@ This struct is handed over to plugins with information specific to the pressed b
 
 This struct is handed over to plugins. It contains several important objects. 
 
-**PrintInfo(info string)**
+### PrintInfo(info string)
 
 This function lets a plugin provide runtime info updates.
 
-**PrintStatus(info string)**
+### PrintStatus(info string)
 
 This function lets a plugin provide status or error information.
 
-**StopCurrentAudioPlayback()**
+### StopCurrentAudioPlayback()
 
 This function lets a plugin stop any currently active audio playback. Possibly emitted from another plugin.
 
