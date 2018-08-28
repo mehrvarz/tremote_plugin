@@ -58,3 +58,33 @@ An array of booleans containing button-event taken-care-of flags.
 An array of int64 elements prepresenting the time in MS when each button was last pressed.
 
 
+# Compatibility
+
+The TRemote version that supports plugins is TRemote v2.0.
+
+In order to create plugins to work with TRemote v2.x, you need to make sure the following items are true:
+
+- Build your plugins with Go 1.11 (exactly)
+
+- Use the follwing packages:
+
+  - github.com/mehrvarz/tremote_plugin v1.0.8
+
+  - github.com/mehrvarz/log v1.0.1
+
+- Optional: ~If~ you want to use any of these packages, make sure you use the exact same versions:
+
+  - github.com/mehrvarz/go_queue v0.0.0-20180811045238-f34b4ebf5df4
+  - github.com/go-ble/ble v0.0.0-20180718090407-11b1dad1df3d
+  - github.com/dhowden/tag v0.0.0-20180815181651-82440840077f
+  - github.com/pkg/errors v0.8.0
+  - github.com/tarm/serial v0.0.0-20180114052751-eaafced92e96
+  - github.com/stretchr/testify v1.2.2
+  - github.com/pmezard/go-difflib v1.0.0
+  - github.com/mattn/go-isatty v0.0.3
+  - github.com/mattn/go-colorable v0.0.9 
+  - github.com/davecgh/go-spew v1.1.1
+  - github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b
+  - github.com/mgutz/logxi v0.0.0-20161027140823-aebf8a7d67ab
+
+
