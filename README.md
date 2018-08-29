@@ -63,20 +63,20 @@ An array of int64 elements containg time stamps (MS) of the start time of the mo
 
 # Compatibility
 
-Support for TRemote plugins started in TRemote v2.0.
+Support for TRemote plugins started with TRemote v2.0.
 
-In order to create plugins that work with TRemote v2.x, the following conditions must be met:
+In order to create plugins that work with TRemote v2.0, the following conditions must be met:
 
 - TRemote plugins are built with Go v1.11 (exactly)
 
   Go Modules should be used with a go.mod file in the project root.
 
-- The follwing packages must be imported:
+- The following packages must be imported:
 
   - github.com/mehrvarz/tremote_plugin v1.0.8
   - github.com/mehrvarz/log v1.0.1
 
-- Optional: IF you intend to use any of the following packages, make sure you use the same versions. Check go.mod file:
+- Optional: IF you intend to use any of the following packages, make sure you use the same versions. Check your go.mod file:
 
   - github.com/mehrvarz/go_queue v0.0.0-20180811045238-f34b4ebf5df4
   - github.com/go-ble/ble v0.0.0-20180718090407-11b1dad1df3d
