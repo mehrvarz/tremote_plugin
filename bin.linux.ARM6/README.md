@@ -24,7 +24,7 @@ runrtp abc-plugin.so "arg1|arg2|arg3"
 
 # Download runtrp
 
-To download runtrp for linux-armv6l (Raspberry Pi), click on the "runrtp" link on top of this page and then click Download.
+To download runtrp for linux-armv6l (Raspberry Pi), click on the "runrtp" link on top of this page and then click [Download].
 
 You can download runtrp for linux-amd64 [here](https://github.com/mehrvarz/tremote_plugin/tree/master/bin.linux.AMD64).
 
