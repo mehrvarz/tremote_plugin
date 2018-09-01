@@ -46,7 +46,7 @@ A pointer to a Go channel that lets a plugin receive pause and unpause requests.
 
 ### PluginIsActive *bool
 
-A pointer to a boolian a plugin must set to true while it is active.
+Do not modify.
 
 ### PIdLastPressed *int
 
