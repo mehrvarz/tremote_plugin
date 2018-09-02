@@ -26,11 +26,11 @@ This struct is handed over to plugins. It contains several important objects.
 
 ### PrintInfo(info string)
 
-This function lets a plugin provide runtime info updates.
+This function lets a plugin provide runtime info updates, such as playing song titles.
 
 ### PrintStatus(info string)
 
-This function lets a plugin provide status or error information.
+This function lets a plugin provide additional status or error info.
 
 ### StopCurrentAudioPlayback()
 
@@ -46,7 +46,7 @@ A pointer to a Go channel that lets a plugin receive pause and unpause requests.
 
 ### PluginIsActive *bool
 
-Do not modify.
+Do not use. Do not modify.
 
 ### PIdLastPressed *int
 
