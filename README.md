@@ -41,7 +41,7 @@ In order to create plugins that work with TRemote v2.0, the following conditions
 
 
 
-# TRemote plugin entry
+# TRemote plugin main entry
 
 The main entry point every TRemote plugin needs to implement is the Action() method.
 
@@ -58,14 +58,14 @@ func Action(
 }
 ```
 
-Action() has to return as quickly as possible.
-Long running operations should take place in goroutines.
+Action() needs to return as quickly as possible.
+Long running operations should take place in dedicated goroutines.
 
-Arguments:
+Action() method arguments:
 
 ### log log.Logger
 
-See: [log](https://godoc.org/github.com/alexcesaro/log).
+See: [log](https://godoc.org/github.com/alexcesaro/log)
 
 ### pid int
 
