@@ -10,17 +10,63 @@ import "github.com/mehrvarz/log"
 ```
 Find more info in paragraph Compatibility below.
 
+# TRemote plugin entry point
 
-# Helper classes
+The main entry point for al TRemote plugins is the Action() method.
+Action() has to return as quickly as possible.
+Long running operations should take place in goroutines.
 
-Repository "tremote_plugin" acts as a interface between the TRemote service and your plugin. 
-It provides access to the following helper classes:
+```
+func Action(
+	log log.Logger,
+	pid int,
+	longpress bool,
+	pressedDuration int64,
+	rcs* tremote_plugin.RemoteControlSpec,
+	ph tremote_plugin.PluginHelper,
+	wg *sync.WaitGroup) error {
 
-## RemoteControlSpec
+}
+```
 
-This struct is handed over to plugins with information specific to the pressed button and it's configuration. Most likely you will make use of the []StrArray element in order to retrieve one or more button specific arguments. How these arguments are used is specific to the individual plugin.
+Arguments:
 
-## PluginHelper
+### log log.Logger
+
+[log](https://godoc.org/github.com/alexcesaro/log)
+
+### pid int
+
+Button ID: 0=P1, 1=P2, ...
+
+### longpress bool
+
+false: Action may be a short or longpress.
+
+true: Action was specified as P#L and should be immediately processed as longpress.
+
+### pressedDuration int64
+
+0: button was just pressed
+
+>0: button was just released, value is the press duration in MS
+
+### rcs* tremote_plugin.RemoteControlSpec
+
+This struct is handed over to plugins with information specific to the pressed button and it's configuration. 
+The most important information are arguments in []StrArray handed over from mapping.txt. 
+How these arguments may be used is plugin specific.
+
+### ph tremote_plugin.PluginHelper
+
+see PluginHelper below
+
+### wg* sync.WaitGroup
+
+For long term operations the waitgroup methods Add() and Done() must be invoked.
+
+
+# PluginHelper
 
 This struct is handed over to plugins. It contains several important objects. 
 
