@@ -8,13 +8,42 @@ To build TRemote plugins you must use Go 1.11 and import these repositories:
 import "github.com/mehrvarz/tremote_plugin"
 import "github.com/mehrvarz/log"
 ```
-Find more info in paragraph Compatibility below.
 
-# TRemote plugin entry point
+# Compatibility
 
-The main entry point for al TRemote plugins is the Action() method.
-Action() has to return as quickly as possible.
-Long running operations should take place in goroutines.
+Support for TRemote plugins started with TRemote v2.0.
+
+In order to create plugins that work with TRemote v2.0, the following conditions must be met:
+
+- TRemote plugins are built with Go v1.11 (exactly)
+
+  Go Modules should be used with a go.mod file in the project root.
+
+- The following packages must be imported:
+
+  - github.com/mehrvarz/tremote_plugin v1.0.8
+  - github.com/mehrvarz/log v1.0.1
+
+- Optional: IF you intend to use any of the following packages, make sure you use the same versions. Check your go.mod file:
+
+  - github.com/mehrvarz/go_queue v0.0.0-20180811045238-f34b4ebf5df4
+  - github.com/go-ble/ble v0.0.0-20180718090407-11b1dad1df3d
+  - github.com/dhowden/tag v0.0.0-20180815181651-82440840077f
+  - github.com/pkg/errors v0.8.0
+  - github.com/tarm/serial v0.0.0-20180114052751-eaafced92e96
+  - github.com/stretchr/testify v1.2.2
+  - github.com/pmezard/go-difflib v1.0.0
+  - github.com/mattn/go-isatty v0.0.3
+  - github.com/mattn/go-colorable v0.0.9 
+  - github.com/davecgh/go-spew v1.1.1
+  - github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b
+  - github.com/mgutz/logxi v0.0.0-20161027140823-aebf8a7d67ab
+
+
+
+# TRemote plugin entry
+
+The main entry point every TRemote plugin needs to implement is the Action() method.
 
 ```
 func Action(
@@ -25,15 +54,18 @@ func Action(
 	rcs* tremote_plugin.RemoteControlSpec,
 	ph tremote_plugin.PluginHelper,
 	wg *sync.WaitGroup) error {
-
+	// ...
 }
 ```
+
+Action() has to return as quickly as possible.
+Long running operations should take place in goroutines.
 
 Arguments:
 
 ### log log.Logger
 
-[log](https://godoc.org/github.com/alexcesaro/log)
+See: [log](https://godoc.org/github.com/alexcesaro/log).
 
 ### pid int
 
@@ -47,9 +79,9 @@ true: Action was specified as P#L and should be immediately processed as longpre
 
 ### pressedDuration int64
 
-0: button was just pressed
+0: Button has just been pressed.
 
->0: button was just released, value is the press duration in MS
+else: Button has just been released. pressedDuration expresses the press duration in milliseconds.
 
 ### rcs* tremote_plugin.RemoteControlSpec
 
@@ -105,36 +137,4 @@ An array of booleans containing "taken-care-of" flags for every button.
 ### PLastPressedMS [tremote_plugin.MaxButton]int64
 
 An array of int64 elements containg time stamps (MS) of the start time of the most recent button press.
-
-
-# Compatibility
-
-Support for TRemote plugins started with TRemote v2.0.
-
-In order to create plugins that work with TRemote v2.0, the following conditions must be met:
-
-- TRemote plugins are built with Go v1.11 (exactly)
-
-  Go Modules should be used with a go.mod file in the project root.
-
-- The following packages must be imported:
-
-  - github.com/mehrvarz/tremote_plugin v1.0.8
-  - github.com/mehrvarz/log v1.0.1
-
-- Optional: IF you intend to use any of the following packages, make sure you use the same versions. Check your go.mod file:
-
-  - github.com/mehrvarz/go_queue v0.0.0-20180811045238-f34b4ebf5df4
-  - github.com/go-ble/ble v0.0.0-20180718090407-11b1dad1df3d
-  - github.com/dhowden/tag v0.0.0-20180815181651-82440840077f
-  - github.com/pkg/errors v0.8.0
-  - github.com/tarm/serial v0.0.0-20180114052751-eaafced92e96
-  - github.com/stretchr/testify v1.2.2
-  - github.com/pmezard/go-difflib v1.0.0
-  - github.com/mattn/go-isatty v0.0.3
-  - github.com/mattn/go-colorable v0.0.9 
-  - github.com/davecgh/go-spew v1.1.1
-  - github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b
-  - github.com/mgutz/logxi v0.0.0-20161027140823-aebf8a7d67ab
-
 
