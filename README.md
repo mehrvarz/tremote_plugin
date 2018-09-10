@@ -59,7 +59,7 @@ func Action(
 ```
 
 Action() needs to return as quickly as possible.
-Long running operations should take place in dedicated goroutines.
+Long running operations must take place in dedicated goroutines.
 
 Action() method arguments:
 

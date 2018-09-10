@@ -37,5 +37,6 @@ type PluginHelper struct {
 	PIdLastPressed              *int               // pid of most recently pressed button
 	PLastPressActionDone        *[MaxButton]bool   // button event taken-care-off array
 	PLastPressedMS              *[MaxButton]int64  // button is pressed since MS array
+        ImageInfo                   PrintFunc          // fkt to provide image info
 }
 
