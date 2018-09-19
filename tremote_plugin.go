@@ -26,6 +26,7 @@ type RemoteControlSpec struct {
 type StopFunc func() error
 type PrintFunc func(string)
 type ImageFunc func([]byte,string)
+type HostCmdFunc func(string,string) string
 
 // PluginHelper provides access to runtime information
 type PluginHelper struct {
@@ -38,6 +39,7 @@ type PluginHelper struct {
 	PIdLastPressed              *int               // pid of most recently pressed button
 	PLastPressActionDone        *[MaxButton]bool   // button event taken-care-off array
 	PLastPressedMS              *[MaxButton]int64  // button is pressed since MS array
-        ImageInfo                   ImageFunc          // fkt to provide image info
+	ImageInfo                   ImageFunc          // fkt to provide image info
+	HostCmd                     HostCmdFunc
 }
 
