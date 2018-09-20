@@ -11,20 +11,22 @@ import "github.com/mehrvarz/log"
 
 # Compatibility
 
-Support for TRemote plugins started with TRemote v2.0.
+Support for TRemote plugins has started with TRemote v2.0.
 
-In order to create plugins that work with TRemote v2.0, the following conditions must be met:
+In order to create plugins compatible with TRemote v3.0, the following conditions must be met:
 
-- TRemote plugins are built with Go v1.11 (exactly)
+- TRemote plugins must be built with Go v1.11
 
-  Go Modules should be used with a go.mod file in the project root.
+  TRemote plugins are based on "Go Modules".
+  For this reason a "go.mod" file must exist in the project folder of any TRemote plugin.
+  In it all imported packages must be listed.
 
 - The following packages must be imported:
 
-  - github.com/mehrvarz/tremote_plugin v1.0.8
+  - github.com/mehrvarz/tremote_plugin v1.0.12
   - github.com/mehrvarz/log v1.0.1
 
-- Optional: IF you intend to use any of the following packages, make sure you use the same versions. Check your go.mod file:
+- Optional: In case any of the following packages are to be included, the same versions must be used:
 
   - github.com/mehrvarz/go_queue v0.0.0-20180811045238-f34b4ebf5df4
   - github.com/go-ble/ble v0.0.0-20180718090407-11b1dad1df3d
@@ -51,6 +53,7 @@ func Action(
 	pid int,
 	longpress bool,
 	pressedDuration int64,
+	homeDirectory string,
 	rcs* tremote_plugin.RemoteControlSpec,
 	ph tremote_plugin.PluginHelper,
 	wg *sync.WaitGroup) error {
@@ -82,6 +85,10 @@ true: Action was specified as P#L and should be immediately processed as longpre
 0: Button has just been pressed.
 
 else: Button has just been released. pressedDuration expresses the press duration in milliseconds.
+
+### homeDirectory string
+
+The path to the installation directory.
 
 ### rcs* tremote_plugin.RemoteControlSpec
 
@@ -124,7 +131,7 @@ A pointer to a Go channel that lets a plugin receive pause and unpause requests.
 
 ### PluginIsActive *bool
 
-Do not use. Do not modify.
+Do not use.
 
 ### PIdLastPressed *int
 
@@ -137,4 +144,19 @@ An array of booleans containing "taken-care-of" flags for every button.
 ### PLastPressedMS [tremote_plugin.MaxButton]int64
 
 An array of int64 elements containg time stamps (MS) of the start time of the most recent button press.
+
+### ImageInfo(jpgData []byte, mime string)
+
+This function enables a plugin to hand over raw JPEG data to be used as background image on the client.
+
+### HostCmd(command string, parameter string) string
+
+This function lets a plugin call functionality offered by TRemote host.
+
+"ScreenPower" switches the screen attached to the host on or off. Parameter may be set to "on" or "off".
+
+"AudioMute" switches the audio mute function. Parameter may be set to "on", "off" or "toggle".
+
+Example: ph.HostCmd("ScreenPower","on")
+
 
