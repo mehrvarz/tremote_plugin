@@ -21,14 +21,14 @@ In order to create plugins compatible with TRemote v3.0, the following condition
   For this reason a "go.mod" file must exist in the project folder of any TRemote plugin.
   In it all imported packages must be listed.
 
-- The following packages must be imported:
+- The following packages must be imported with the shown version strings:
 
-  - github.com/mehrvarz/tremote_plugin v1.0.12
+  - github.com/mehrvarz/tremote_plugin v1.0.13
   - github.com/mehrvarz/log v1.0.1
 
-- Optional: In case any of the following packages are to be included, the same versions must be used:
+- Optional: In case any of the following packages are to be included, the given version strings must be used:
 
-  - github.com/mehrvarz/go_queue v0.0.0-20180811045238-f34b4ebf5df4
+  - github.com/mehrvarz/go_queue v1.0.1
   - github.com/go-ble/ble v0.0.0-20180718090407-11b1dad1df3d
   - github.com/dhowden/tag v0.0.0-20180815181651-82440840077f
   - github.com/pkg/errors v0.8.0
@@ -40,6 +40,15 @@ In order to create plugins compatible with TRemote v3.0, the following condition
   - github.com/davecgh/go-spew v1.1.1
   - github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b
   - github.com/mgutz/logxi v0.0.0-20161027140823-aebf8a7d67ab
+  - github.com/hashicorp/go.net v0.0.0-20151006203346-104dcad90073 // indirect
+  - github.com/hashicorp/mdns v0.0.0-20170221172940-4e527d9d8081
+  - github.com/miekg/dns v1.1.1 // indirect
+  - golang.org/x/crypto v0.0.0-20181203042331-505ab145d0a9 // indirect
+  - golang.org/x/net v0.0.0-20181201002055-351d144fa1fc // indirect
+  - golang.org/x/sys v0.0.0-20181205085412-a5c9d58dba9a // indirect
+  - github.com/bobertlo/go-mpg123 v0.0.0-20140824082338-d2238336e6db
+  - github.com/gordonklaus/portaudio v0.0.0-20180817120803-00e7307ccd93
+  - github.com/mewkiz/flac v1.0.5
 
 
 
@@ -61,7 +70,7 @@ func Action(
 }
 ```
 
-Action() needs to return as quickly as possible.
+Action() should return as quickly as possible.
 Long running operations must take place in dedicated goroutines.
 
 Action() method arguments:

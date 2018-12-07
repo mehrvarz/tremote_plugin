@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-const MaxButton             uint = 8
+const MaxButton             uint = 32
 const LongPressDelay        time.Duration = 500
 
 // RemoteControlSpec provides access to the invoked button configuration
@@ -12,6 +12,7 @@ type RemoteControlSpec struct {
 	MultiButton bool        // single-button action if set false
 
 	BIT   uint              // button bitmask
+	Pnumber int             // button number (0=undefined, 1=P1, 2=P2, ...)
 	Label string            // button label
 
 	Fkt      string         // name of short-press action
